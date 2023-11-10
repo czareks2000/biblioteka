@@ -1,0 +1,23 @@
+<div class="mt-4">
+    <h2>Book List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Author</th>
+          <th>Title</th>
+          <th>Publication Year</th>
+          <th>Is Borrowed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{ book.id }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.publicationYear }}</td>
+          <td>{{ book.isBorrowed ? 'Yes' : 'No' }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
