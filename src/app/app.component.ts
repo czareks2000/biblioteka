@@ -14,11 +14,11 @@ export class AppComponent {
 
   constructor(){
     this.books = [
-      new Book(1, 'Author 1', 'Title 1', 2000, 'Description 1', false, new Date('2023-01-01'), undefined),
-      new Book(2, 'Author 2', 'Title 2', 2010, 'Description 2', true, new Date('2023-01-01'), new Date('2023-02-01')),
+      new Book(1, 'Author 1', 'Title 1', 2000, 'Description 1', false, new Date('2023-01-01'), new Date('2023-02-01')),
+      new Book(2, 'Author 2', 'Title 2', 2010, 'Description 2', true, new Date('2023-01-01'), undefined),
       new Book(3, 'Author 3', 'Title 3', 1995, 'Description 3', false, undefined, undefined),
-      new Book(4, 'Author 4', 'Title 4', 2022, 'Description 4', true, new Date('2023-03-01'), new Date('2023-04-01')),
-      new Book(5, 'Author 5', 'Title 5', 1985, 'Description 5', false, new Date('2023-01-01'), undefined),
+      new Book(4, 'Author 4', 'Title 4', 2022, 'Description 4', true, new Date('2023-03-01'), undefined),
+      new Book(5, 'Author 5', 'Title 5', 1985, 'Description 5', false, new Date('2023-01-01'), new Date('2023-04-01')),
     ];
 
     this.readers = [
