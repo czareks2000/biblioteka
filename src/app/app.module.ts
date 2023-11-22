@@ -7,6 +7,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { ReaderListComponent } from './reader-list/reader-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BorrowedHistoryComponent } from './borrowed-history/borrowed-history.component';
+import { BookAddComponent } from './book-add/book-add.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { BorrowedHistoryComponent } from './borrowed-history/borrowed-history.co
     BookListComponent,
     ReaderListComponent,
     BookDetailsComponent,
-    BorrowedHistoryComponent
+    BorrowedHistoryComponent,
+    BookAddComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

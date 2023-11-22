@@ -1,0 +1,28 @@
+.book-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; /* Adjust the max-width as needed */
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .form-button {
+    padding: 8px;
+    cursor: pointer;
+  }
+
+.invalid_input{
+    color: red;
+    
+}

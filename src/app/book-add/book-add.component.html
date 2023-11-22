@@ -1,0 +1,36 @@
+<div class="add-book">
+    <h2>Dodaj Książkę</h2>
+        <form #addBook="ngForm" (ngSubmit)="submit(data)" class="book-form">
+    
+            <div class="form-group">
+                <label for="title"><strong>Tytuł:</strong></label>
+                <input type="text" class="form-input" name="Title" [(ngModel)]="data.Title" 
+                #title="ngModel" required />
+                <p class="invalid_input" ><span *ngIf="title.invalid && title.touched">Pole obowiązkowe </span></p>
+            </div>
+          
+              <div class="form-group">
+                <label for="year"><strong>Data wydania:</strong></label>
+                <input type="number" class="form-input" placeholder="Rok wydania" name="year" [(ngModel)]="data.PublicationYear"  
+                #year="ngModel" min="0" [max]="currentYear" required />
+                <p class="invalid_input" ><span *ngIf="year.errors?.['required'] && year.touched">Pole obowiązkowe </span></p>
+                <p class="invalid_input" ><span *ngIf="year.errors?.['min'] || year.errors?.['max']">Musi być dodatnie, nie starsze niż obecny rok</span></p>
+              </div>
+          
+              <div class="form-group">
+                <label for="author"><strong>Autor:</strong></label>
+                <input type="text" class="form-input" placeholder="Autor" name="author" [(ngModel)]="data.Author"  
+                #author="ngModel" ngModel pattern="[A-Z]*" required/>
+                <p class="invalid_input" ><span *ngIf="author.errors?.['required'] && author.touched">Pole obowiązkowe</span></p>
+                <p class="invalid_input" ><span *ngIf="author.errors?.['pattern']">Muszą być duże litery, nie mogą być cyfry  </span></p>
+
+              </div>
+          
+              <div class="form-group">
+                <label for="description"><strong>Opis:</strong></label>
+                <textarea class="form-input" placeholder="Opis" name="description" [(ngModel)]="data.Description"></textarea>
+            <p class="invalid_input" ><span></span></p>  
+            </div>
+          
+              <button [disabled]="addBook.invalid" type="submit" class="form-button">Dodaj</button></form>
+    </div> 
