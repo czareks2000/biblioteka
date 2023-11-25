@@ -17,7 +17,7 @@ export class BookAddComponent {
       title: ['', Validators.required],
       author: ['', [Validators.required,Validators.pattern('[A-Z]*')]], //
       publicationYear: ['', [Validators.required, Validators.min(0), Validators.max(new Date().getFullYear())]],//
-      description: [''],
+      description: ['']
 
     });
   }
@@ -40,6 +40,6 @@ export class BookAddComponent {
 
     this.bookForm.reset();
   }
-  
 }
+
 }

@@ -10,6 +10,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BorrowedHistoryComponent } from './borrowed-history/borrowed-history.component';
 import { BookAddComponent } from './book-add/book-add.component';
 import { FormsModule } from '@angular/forms';
+import { WordsCountValidatorDirective } from './words-count-validator.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     ReaderListComponent,
     BookDetailsComponent,
     BorrowedHistoryComponent,
-    BookAddComponent
+    BookAddComponent,
+    WordsCountValidatorDirective
   ],
   imports: [
     BrowserModule,
