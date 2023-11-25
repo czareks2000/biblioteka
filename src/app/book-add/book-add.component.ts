@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Book from 'src/models/Book';
 
 @Component({
@@ -9,18 +10,36 @@ import Book from 'src/models/Book';
 export class BookAddComponent {
 
   @Input() books: Book[] = [];
-  data: Book=new Book(0,'','',0,'',false,undefined)
-  currentYear: number = new Date().getFullYear();
+  bookForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.bookForm = this.fb.group({
+      title: ['', Validators.required],
+      author: ['', [Validators.required,Validators.pattern('[A-Z]*')]], //
+      publicationYear: ['', [Validators.required, Validators.min(0), Validators.max(new Date().getFullYear())]],//
+      description: ['']
+
+    });
+  }
 
 
+  onSubmit(): void {
+  if (this.bookForm.valid) {
+    const newBook = new Book(
+      this.books.length + 1, // Automatyczne generowanie unikalnego ID (tutaj na podstawie ilości książek)
+      this.bookForm.value.author,
+      this.bookForm.value.title,
+      this.bookForm.value.publicationYear,
+      this.bookForm.value.description,  
+      false // Nowa książka nie jest wypożyczona na początku
+    );
+    this.books.push(newBook);
+    console.log('Dodano książkę:', newBook);
 
-  submit(data: Book)
-{
-  console.warn(data)
-  data.Id=this.books.length+1;
-  data.IsBorrowed=false;
-  this.books.push(data);
-  this.data = new Book(0, '', '',0,'', false, undefined);
-  
+    // Opcjonalnie można dodać kod obsługi np. wysłanie na serwer itp.
+
+    this.bookForm.reset();
+  }
 }
+
 }

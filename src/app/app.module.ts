@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BorrowedHistoryComponent } from './borrowed-history/borrowed-history.component';
 import { BookAddComponent } from './book-add/book-add.component';
 import { FormsModule } from '@angular/forms';
+import { WordsCountValidatorDirective } from './words-count-validator.directive';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { FormsModule } from '@angular/forms';
     ReaderListComponent,
     BookDetailsComponent,
     BorrowedHistoryComponent,
-    BookAddComponent
+    BookAddComponent,
+    WordsCountValidatorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
