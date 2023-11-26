@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import Book from 'src/models/Book';
+import { BooksReadersService } from '../books-readers.service';
 
 @Component({
   selector: 'app-book-details',
@@ -7,5 +9,16 @@ import Book from 'src/models/Book';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent {
-  @Input() book?: Book;
+  book: Book | undefined;
+
+  constructor(
+    private route: ActivatedRoute,
+    private booksReadersService: BooksReadersService
+  )
+  {
+    const bookId = this.route.snapshot.paramMap.get('id');
+
+    this.book = this.booksReadersService.getBook(Number(bookId));
+  }
+  
 }

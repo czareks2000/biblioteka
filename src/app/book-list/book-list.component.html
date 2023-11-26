@@ -1,23 +1,48 @@
 <div class="mt-4">
-    <h2>Book List</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Author</th>
-          <th>Title</th>
-          <th>Publication Year</th>
-          <th>Is Borrowed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let book of books">
-          <td>{{ book.Id }}</td>
-          <td>{{ book.Author }}</td>
-          <td>{{ book.Title }}</td>
-          <td>{{ book.PublicationYear }}</td>
-          <td>{{ book.IsBorrowed ? 'Yes' : 'No' }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <h2>Book List</h2>
+
+  <div class="input-group my-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Filter by Name:</span>
+    </div>
+    <input type="text" class="form-control" id="filterByName" [(ngModel)]="filterByName" placeholder="Enter book name">
+  </div>
+
+  <div class="input-group my-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Filter by Borrowed:</span>
+    </div>
+    <select class="form-control" [(ngModel)]="filterByBorrowed">
+      <option value="all">All</option>
+      <option value="borrowed">Borrowed</option>
+      <option value="notBorrowed">Not Borrowed</option>
+    </select>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Author</th>
+        <th>Title</th>
+        <th>Publication Year</th>
+        <th>Is Borrowed</th>
+        <th style="width: 0; white-space:nowrap;" class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books | booksFilter: filterByName | booksFilterByBorrowed: filterByBorrowed">
+        <td>{{ book.Id }}</td>
+        <td>{{ book.Author }}</td>
+        <td>{{ book.Title }}</td>
+        <td>{{ book.PublicationYear }}</td>
+        <td>{{ book.IsBorrowed ? 'Yes' : 'No' }}</td>
+        <td class="d-flex">
+          <a [routerLink]="['/book-details', book.Id]" class="btn btn-primary btn-sm mx-2">Details</a>
+          <button (click)="deleteBook(book)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<app-book-add></app-book-add>

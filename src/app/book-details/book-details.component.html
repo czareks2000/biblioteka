@@ -9,4 +9,7 @@
       <p><strong>Borrowing Date:</strong> {{ book.BorrowingDate | date:'short' }}</p>
       <p><strong>Return Date:</strong> {{ book.ReturnDate | date:'short' }}</p>
     </div>
-  </div>
+</div>
+<div *ngIf="!book">
+ <h2>Book not found</h2>
+</div>

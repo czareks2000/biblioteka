@@ -11,6 +11,10 @@ import { BorrowedHistoryComponent } from './borrowed-history/borrowed-history.co
 import { BookAddComponent } from './book-add/book-add.component';
 import { FormsModule } from '@angular/forms';
 import { WordsCountValidatorDirective } from './words-count-validator.directive';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { BooksReadersService } from './books-readers.service';
+import { BookFilterPipe } from './book-filter.pipe';
+import { BooksFilterBorrowedPipe } from './books-filter-borrowed.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { WordsCountValidatorDirective } from './words-count-validator.directive'
     BookDetailsComponent,
     BorrowedHistoryComponent,
     BookAddComponent,
-    WordsCountValidatorDirective
+    WordsCountValidatorDirective,
+    NavBarComponent,
+    BookFilterPipe,
+    BooksFilterBorrowedPipe
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,7 @@ import { WordsCountValidatorDirective } from './words-count-validator.directive'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [BooksReadersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

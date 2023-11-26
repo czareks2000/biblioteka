@@ -1,45 +1,46 @@
-<div class="add-book">
-    <h2>Dodaj Książkę</h2>
-        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="book-form">
+<div class="add-book mt-4">
+  <h2>Add Book</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="col-6">
+
+        <div class="form-group my-2">
+            <label class="my-1"><b>Title:</b></label>
+            <input type="text" class="form-control" formControlName="title" required/>
+            <p class="text-danger" >
+              <span *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched">Title is required</span>
+            </p>
+        </div>
+      
+        <div class="form-group my-2">
+          <label class="my-1" for="year"><b>Publication Year:</b></label>
+          <input type="number" class="form-control" placeholder="Rok wydania" formControlName="publicationYear"  required/>
+          <p class="text-danger" *ngIf="bookForm.controls['publicationYear']?.invalid && bookForm.controls['publicationYear']?.touched">
+            <span *ngIf="bookForm.controls['publicationYear']?.errors?.['min']">Must be positive</span>
+            <span *ngIf="bookForm.controls['publicationYear']?.errors?.['max']">Not older than the current year</span>
+          </p>
+            
+        </div>
+      
+        <div class="form-group my-2">
+          <label class="my-1" for="author"><b>Autor:</b></label>
+          <input type="text" class="form-control" placeholder="Autor" formControlName="author"   
+          required>
+          <p class="text-danger" *ngIf="bookForm.controls['author']?.invalid && (bookForm.controls['author']?.touched || bookForm.controls['author']?.dirty)">
+            <span *ngIf="bookForm.controls['author']?.errors?.['required']">Author is required</span>
+            <span *ngIf="bookForm.controls['author']?.errors?.['pattern']">Must be uppercase, no numbers allowed</span>
+          </p>
+
+        </div>
+      
+        <div class="form-group my-2">
+          <label class="my-1" for="description"><b>Opis:</b></label>
+          <textarea class="form-control" placeholder="Opis" formControlName="description" appWordsCountValidator></textarea>
+          <p class="text-danger" *ngIf="bookForm.controls['description'].hasError('Max') && (bookForm.controls['description'].touched || bookForm.controls['description'].dirty)">
+            Maximum word count is 30
+          </p>
+        </div>
     
-            <div class="form-group">
-                <label for="title"><strong>Tytuł:</strong></label>
-                <input type="text" class="form-control" formControlName="title" required/>
-                <p class="invalid_input" >
-                  <span *ngIf="bookForm.controls['title'].invalid && bookForm.controls['title'].touched">Pole obowiązkowe </span>
-                </p>
-            </div>
-          
-              <div class="form-group">
-                <label for="year"><strong>Data wydania:</strong></label>
-                <input type="number" class="form-control" placeholder="Rok wydania" formControlName="publicationYear"  required 
-                 />
-                 <p class="invalid_input" *ngIf="bookForm.controls['publicationYear']?.invalid && bookForm.controls['publicationYear']?.touched">
-                  <span *ngIf="bookForm.controls['publicationYear']?.errors?.['min']">Musi być dodatnie</span>
-                  <span *ngIf="bookForm.controls['publicationYear']?.errors?.['max']">Nie starsze niż obecny rok</span>
-                </p>
-                 
-              </div>
-          
-              <div class="form-group">
-                <label for="author"><strong>Autor:</strong></label>
-                <input type="text" class="form-control" placeholder="Autor" formControlName="author"   
-                required>
-               <p class="invalid_input" *ngIf="bookForm.controls['author']?.invalid && (bookForm.controls['author']?.touched || bookForm.controls['author']?.dirty)">
-                  <span *ngIf="bookForm.controls['author']?.errors?.['required']">Pole obowiązkowe</span>
-                  <span *ngIf="bookForm.controls['author']?.errors?.['pattern']">Muszą być duże litery, nie mogą być cyfry</span>
-                </p>
-
-              </div>
-          
-              <div class="form-group">
-                <label for="description"><strong>Opis:</strong></label>
-                <textarea class="form-control" placeholder="Opis" formControlName="description" appWordsCountValidator></textarea>
-                <p class="invalid_input" *ngIf="bookForm.controls['description'].hasError('Max') && (bookForm.controls['description'].touched || bookForm.controls['description'].dirty)">
-                  Maksymalna liczba słów to 30
-                </p>
-              </div>
-          
-
-              <button [disabled]="bookForm.invalid" type="submit" class="form-button">Dodaj</button></form>
-    </div> 
+        <div class="text-center">
+          <button [disabled]="bookForm.invalid" type="submit" class="btn btn-success mt-3">Dodaj</button>
+        </div>
+    </form>
+</div> 

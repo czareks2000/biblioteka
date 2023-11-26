@@ -1,18 +1,12 @@
 import Book from "./Book";
 
 export class Reader {
-    private id: number;
-    private firstName: string;
-    private lastName: string;
-    private pesel: string;
-    private borrowedBooks: Book[];
-  
-    constructor(id:number, firstName: string, lastName: string, pesel: string, borrowedBooks: Book[]) {
-      this.id = id;
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.pesel = pesel;
-      this.borrowedBooks = borrowedBooks;
+    constructor(
+        private id:number, 
+        private firstName: string, 
+        private lastName: string, 
+        private pesel: string, 
+        private borrowedBooks: Book[]) {
     }
 
     // Gettery
@@ -61,7 +55,10 @@ export class Reader {
     returnBook(book: Book): void {
         const index = this.borrowedBooks.indexOf(book);
         if (index !== -1) {
-            this.borrowedBooks.splice(index, 1);
+            // Zmień status wypożyczenia na false
+            this.borrowedBooks[index].IsBorrowed = false;
+            // Ustaw datę zwrotu
+            this.borrowedBooks[index].ReturnDate = new Date();
         }
     }
 }

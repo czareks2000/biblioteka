@@ -6,6 +6,7 @@
           <th>ID</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th style="width: 0; white-space:nowrap;" class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -13,6 +14,9 @@
           <td>{{ reader.Id }}</td>
           <td>{{ reader.FirstName }}</td>
           <td>{{ reader.LastName }}</td>
+          <td class="d-flex">
+            <a [routerLink]="['/reader', reader.Id, 'history']" class="btn btn-secondary btn-sm">History</a>
+          </td>
         </tr>
       </tbody>
     </table>

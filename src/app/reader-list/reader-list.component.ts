@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Reader } from 'src/models/Reader';
+import { BooksReadersService } from '../books-readers.service';
 
 @Component({
   selector: 'app-reader-list',
@@ -7,5 +8,11 @@ import { Reader } from 'src/models/Reader';
   styleUrls: ['./reader-list.component.css']
 })
 export class ReaderListComponent {
-  @Input() readers: Reader[] = [];
+  readers: Reader[] = [];
+
+  constructor(private booksReadersService: BooksReadersService) {}
+
+  ngOnInit() {
+    this.readers = this.booksReadersService.getReaders();
+  }
 }

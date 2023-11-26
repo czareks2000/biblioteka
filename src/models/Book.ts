@@ -1,32 +1,14 @@
-export default class Book {
-    private id: number;
-    private author: string;
-    private title: string;
-    private publicationYear: number;
-    private description: string;
-    private isBorrowed: boolean;
-    private borrowingDate?: Date;
-    private returnDate?: Date;
-  
+export default class Book {  
     constructor(
-        id: number,
-        author: string,
-        title: string,
-        publicationYear: number,
-        description: string,
-        isBorrowed: boolean,
-        borrowingDate?: Date,
-        returnDate?: Date
-    ) {
-        this.id = id;
-        this.author = author;
-        this.title = title;
-        this.publicationYear = publicationYear;
-        this.description = description;
-        this.isBorrowed = isBorrowed;
-        this.borrowingDate = borrowingDate;
-        this.returnDate = returnDate;
-    }
+        private id: number,
+        private author: string,
+        private title: string,
+        private publicationYear: number,
+        private description: string,
+        private isBorrowed: boolean,
+        private borrowingDate?: Date,
+        private returnDate?: Date
+    ) {}
 
     // Gettery
     get Id(): number {
