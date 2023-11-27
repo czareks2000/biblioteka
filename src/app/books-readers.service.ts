@@ -20,11 +20,11 @@ export class BooksReadersService {
     ];
 
     this.readers = [
-      new Reader(1, 'John', 'Doe', '123456789', [this.books[0]]),
-      new Reader(2, 'Jane', 'Smith', '987654321', [this.books[1]]),
-      new Reader(3, 'Alice', 'Johnson', '111222333', [this.books[2]]),
-      new Reader(4, 'Bob', 'Williams', '444555666', [this.books[3]]),
-      new Reader(5, 'Eva', 'Davis', '777888999', [this.books[4]]),
+      new Reader(1, 'John', 'Doe', '123456789123', [this.books[0]]),
+      new Reader(2, 'Jane', 'Smith', '987654321123', [this.books[1]]),
+      new Reader(3, 'Alice', 'Johnson', '111222333123', [this.books[2]]),
+      new Reader(4, 'Bob', 'Williams', '444555666123', [this.books[3]]),
+      new Reader(5, 'Eva', 'Davis', '777888999123', [this.books[4]]),
     ];
   }
 

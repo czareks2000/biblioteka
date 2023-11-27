@@ -15,6 +15,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BooksReadersService } from './books-readers.service';
 import { BookFilterPipe } from './book-filter.pipe';
 import { BooksFilterBorrowedPipe } from './books-filter-borrowed.pipe';
+import { ReaderAddComponent } from './reader-add/reader-add.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BooksFilterBorrowedPipe } from './books-filter-borrowed.pipe';
     WordsCountValidatorDirective,
     NavBarComponent,
     BookFilterPipe,
-    BooksFilterBorrowedPipe
+    BooksFilterBorrowedPipe,
+    ReaderAddComponent
   ],
   imports: [
     BrowserModule,

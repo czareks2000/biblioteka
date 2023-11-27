@@ -1,0 +1,40 @@
+<div class="add-reader mt-4">
+    <h2>Add Reader</h2>
+      <form [formGroup]="readerForm" (ngSubmit)="onSubmit()" class="col-6">
+  
+          <div class="form-group my-2">
+              <label class="my-1"><b>First Name:</b></label>
+              <input type="text" class="form-control" placeholder="FirstName" formControlName="firstName" required/>
+              <p class="text-danger" >
+                <span *ngIf="readerForm.controls['firstName'].hasError('required') && readerForm.controls['firstName'].touched">First name is required</span>
+                <span *ngIf="readerForm.controls['firstName'].hasError('minlength')">First name must have at least 3 characters</span>
+              </p>
+          </div>
+          <div class="form-group my-2">
+            <label class="my-1"><b>Last name:</b></label>
+            <input type="text" class="form-control" placeholder="LastName" formControlName="lastName" required/>
+            <p class="text-danger" >
+              <span *ngIf="readerForm.controls['lastName'].hasError('required') && readerForm.controls['lastName'].touched">Last name is required</span>
+                <span *ngIf="readerForm.controls['lastName'].hasError('minlength')">Last name must have at least 3 characters</span>
+              </p>
+            
+            </div>
+          
+        
+            <div class="form-group my-2">
+                <label class="my-1"><b>Pesel:</b></label>
+                <input type="text" class="form-control" placeholder="Pesel" formControlName="pesel" required/>
+                <p class="text-danger" >
+                  <span *ngIf="readerForm.controls['pesel'].hasError('required') && readerForm.controls['pesel'].touched">Pesel is required</span>
+                <span *ngIf="readerForm.controls['pesel'].hasError('minlength')">Pesel must have exactly 11 characters</span>
+                <span *ngIf="readerForm.controls['pesel'].hasError('maxlength')">Pesel must have exactly 11 characters</span>
+                <span *ngIf="readerForm.controls['pesel'].hasError('pattern')"> Pesel must contain only digits</span>
+
+                </p>
+            </div>
+         
+          <div class="text-center">
+            <button [disabled]="readerForm.invalid" type="submit" class="btn btn-success mt-3">Add</button>
+          </div>
+      </form>
+  </div> 
