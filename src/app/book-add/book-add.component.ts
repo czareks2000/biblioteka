@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Book from 'src/models/Book';
 import { BooksReadersService } from '../books-readers.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-book-add',
@@ -11,7 +13,7 @@ import { BooksReadersService } from '../books-readers.service';
 export class BookAddComponent {
   bookForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private booksReadersService: BooksReadersService) {
+  constructor(private fb: FormBuilder, private booksReadersService: BooksReadersService, private router: Router) {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', [Validators.required,Validators.pattern('[A-Z]*')]], //
@@ -29,13 +31,12 @@ export class BookAddComponent {
       this.bookForm.value.title,
       this.bookForm.value.publicationYear,
       this.bookForm.value.description,  
-      false // Nowa książka nie jest wypożyczona na początku
+      false, // Nowa książka nie jest wypożyczona na początku
     );
 
     this.booksReadersService.addBook(newBook);
     console.log('Dodano książkę:', newBook);
-
-    // Opcjonalnie można dodać kod obsługi np. wysłanie na serwer itp.
+    this.router.navigate(['/']);
 
     this.bookForm.reset();
   }

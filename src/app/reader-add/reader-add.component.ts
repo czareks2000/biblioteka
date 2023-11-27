@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BooksReadersService } from '../books-readers.service';
 import { Reader } from 'src/models/Reader';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { Reader } from 'src/models/Reader';
 export class ReaderAddComponent {
   readerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private booksReadersService: BooksReadersService) {
+  constructor(private fb: FormBuilder, private booksReadersService: BooksReadersService, private router: Router) {
     this.readerForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
@@ -32,6 +33,7 @@ export class ReaderAddComponent {
       );
 
       this.booksReadersService.addReader(newReader);
+      this.router.navigate(['/readers']);
 
       this.readerForm.reset();
     }
