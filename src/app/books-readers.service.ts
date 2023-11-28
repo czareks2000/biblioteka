@@ -37,6 +37,7 @@ export class BooksReadersService {
   }
 
   addBook(book: Book): void {
+    book.Id = this.books[this.books.length-1].Id + 1;
     this.books.push(book);
   }
 
