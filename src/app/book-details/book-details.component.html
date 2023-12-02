@@ -1,15 +1,18 @@
 <div class="mt-4" *ngIf="book">
-    <h2>{{ book.Title }}</h2>
-    <p><strong>Author:</strong> {{ book.Author }}</p>
-    <p><strong>Publication Year:</strong> {{ book.PublicationYear }}</p>
-    <p><strong>Description:</strong> {{ book.Description }}</p>
-    <p><strong>Is Borrowed:</strong> {{ book.IsBorrowed ? 'Yes' : 'No' }}</p>
+    <h2>{{ book.title }}</h2>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>Publication Year:</strong> {{ book.publicationYear }}</p>
+    <p><strong>Description:</strong> {{ book.description }}</p>
+    <p><strong>Is Borrowed:</strong> {{ book.isBorrowed ? 'Yes' : 'No' }}</p>
     
-    <div *ngIf="book.IsBorrowed">
-      <p><strong>Borrowing Date:</strong> {{ book.BorrowingDate | date:'short' }}</p>
-      <p><strong>Return Date:</strong> {{ book.ReturnDate | date:'short' }}</p>
+    <div *ngIf="book.isBorrowed">
+      <p><strong>Borrowing Date:</strong> {{ book.borrowingDate | date:'short' }}</p>
+      <p><strong>Return Date:</strong> {{ book.returnDate | date:'short' }}</p>
     </div>
+
+    <app-borrow-book [book]="book" (assginBookToReader)="assignBookToReader(book.id, $event)"/>
 </div>
 <div *ngIf="!book">
  <h2>Book not found</h2>
 </div>
+

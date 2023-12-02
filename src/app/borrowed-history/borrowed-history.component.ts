@@ -17,7 +17,12 @@ export class BorrowedHistoryComponent {
   )
   {
     const readerId = this.route.snapshot.paramMap.get('id');
+    this.booksReadersService.getReader(Number(readerId))
+      .subscribe((reader) => this.reader = reader);
+  }
 
-    this.reader = this.booksReadersService.getReader(Number(readerId));
+  returnBook = (bookId: number, readerId: number, ): void => {
+    this.booksReadersService.returnBookFromReader(bookId, readerId)
+      .subscribe((reader) => this.reader = reader);
   }
 }

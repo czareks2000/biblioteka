@@ -25,14 +25,14 @@ export class ReaderAddComponent {
   onSubmit(): void {
     if (this.readerForm.valid) {
       const newReader = new Reader(
-        this.booksReadersService.getReaders().length + 1,
+        0,
         this.readerForm.value.firstName,
         this.readerForm.value.lastName,
         this.readerForm.value.pesel,
         this.readerForm.value.borrowedBooks
       );
 
-      this.booksReadersService.addReader(newReader);
+      this.booksReadersService.addReader(newReader).subscribe();
       this.router.navigate(['/readers']);
 
       this.readerForm.reset();

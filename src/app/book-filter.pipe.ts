@@ -10,6 +10,6 @@ export class BookFilterPipe implements PipeTransform {
       return books;
     }
 
-    return books.filter(book => book.Title.toLowerCase().includes(filterByName.toLowerCase()));
+    return books.filter(book => book.title.toLowerCase().includes(filterByName.toLowerCase()));
   }
 }

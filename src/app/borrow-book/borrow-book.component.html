@@ -1,0 +1,13 @@
+<div *ngIf="book" class="mt-4 col-6">
+    <div *ngIf="!book.isBorrowed" class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Select a Reader:</span>
+        </div>
+        <select id="readerSelect" [(ngModel)]="selectedReaderId" class="form-control">
+            <option *ngFor="let reader of readers" [value]="reader.id">{{ reader.firstName }} {{ reader.lastName }}</option>
+        </select>
+        <div class="input-group-append">
+            <button class="btn btn-primary" (click)="submit(selectedReaderId)">Borrow</button>
+        </div>
+    </div>
+</div>

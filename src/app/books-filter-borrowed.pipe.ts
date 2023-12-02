@@ -12,6 +12,6 @@ export class BooksFilterBorrowedPipe implements PipeTransform {
 
     const isBorrowed = filterByBorrowed === 'borrowed';
     
-    return books.filter(book => book.IsBorrowed === isBorrowed);
+    return books.filter(book => book.isBorrowed === isBorrowed);
   }
 }

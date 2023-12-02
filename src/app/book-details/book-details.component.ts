@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { NgZone } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import Book from 'src/models/Book';
 import { BooksReadersService } from '../books-readers.service';
+import { Reader } from 'src/models/Reader';
 
 @Component({
   selector: 'app-book-details',
@@ -13,12 +15,18 @@ export class BookDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private booksReadersService: BooksReadersService
+    private router: Router,
+    private booksReadersService: BooksReadersService,
+    private ngZone: NgZone
   )
   {
     const bookId = this.route.snapshot.paramMap.get('id');
-
-    this.book = this.booksReadersService.getBook(Number(bookId));
+    this.booksReadersService.getBook(Number(bookId))
+      .subscribe((book) => this.book = book);
   }
-  
+
+  assignBookToReader = (bookId: number, readerId: number, ): void => {
+    this.booksReadersService.assignBookToReader(bookId, readerId)
+      .subscribe((book) => this.book = book);
+  }
 }

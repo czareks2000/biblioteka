@@ -1,0 +1,128 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "author": "Author 1",
+      "title": "Title 1",
+      "publicationYear": 2000,
+      "description": "Description 1",
+      "isBorrowed": false,
+      "borrowingDate": "2023-12-02T19:33:53.265Z",
+      "returnDate": "2023-12-02T19:49:43.023Z"
+    },
+    {
+      "id": 2,
+      "author": "Author 2",
+      "title": "Title 2",
+      "publicationYear": 2010,
+      "isBorrowed": true,
+      "borrowingDate": "2023-12-02T19:40:33.856Z",
+      "returnDate": null
+    },
+    {
+      "id": 3,
+      "author": "Author 3",
+      "title": "Title 3",
+      "publicationYear": 1995,
+      "isBorrowed": false,
+      "borrowingDate": null,
+      "returnDate": null
+    },
+    {
+      "id": 4,
+      "author": "Author 4",
+      "title": "Title 4",
+      "publicationYear": 2022,
+      "isBorrowed": false,
+      "borrowingDate": null,
+      "returnDate": null
+    },
+    {
+      "id": 5,
+      "author": "Author 5",
+      "title": "Title 5",
+      "publicationYear": 1985,
+      "description": "Description 5",
+      "isBorrowed": false,
+      "borrowingDate": null,
+      "returnDate": null
+    },
+    {
+      "id": 6,
+      "author": "Author 1",
+      "title": "Title 1",
+      "publicationYear": 2000,
+      "description": "Description 1",
+      "isBorrowed": false,
+      "borrowingDate": null,
+      "returnDate": null
+    }
+  ],
+  "readers": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "idNumber": "123456789123",
+      "borrowedBooks": [
+        {
+          "id": 2,
+          "author": "Author 2",
+          "title": "Title 2",
+          "publicationYear": 2010,
+          "description": "Description 2",
+          "isBorrowed": true,
+          "borrowingDate": "2023-12-02T19:13:48.365Z"
+        },
+        {
+          "id": 1,
+          "author": "Author 1",
+          "title": "Title 1",
+          "publicationYear": 2000,
+          "description": "Description 1",
+          "isBorrowed": false,
+          "borrowingDate": "2023-12-02T19:33:53.265Z",
+          "returnDate": "2023-12-02T19:49:43.023Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "idNumber": "987654321123",
+      "borrowedBooks": []
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "idNumber": "111222333123",
+      "borrowedBooks": [
+        {
+          "id": 2,
+          "author": "Author 2",
+          "title": "Title 2",
+          "publicationYear": 2010,
+          "isBorrowed": true,
+          "borrowingDate": "2023-12-02T19:40:33.856Z",
+          "returnDate": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "firstName": "Bob",
+      "lastName": "Williams",
+      "idNumber": "444555666123",
+      "borrowedBooks": []
+    },
+    {
+      "id": 5,
+      "firstName": "Eva",
+      "lastName": "Davis",
+      "idNumber": "777888999123",
+      "borrowedBooks": []
+    }
+  ]
+}

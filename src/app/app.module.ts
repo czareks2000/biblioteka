@@ -16,6 +16,8 @@ import { BooksReadersService } from './books-readers.service';
 import { BookFilterPipe } from './book-filter.pipe';
 import { BooksFilterBorrowedPipe } from './books-filter-borrowed.pipe';
 import { ReaderAddComponent } from './reader-add/reader-add.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +31,15 @@ import { ReaderAddComponent } from './reader-add/reader-add.component';
     NavBarComponent,
     BookFilterPipe,
     BooksFilterBorrowedPipe,
-    ReaderAddComponent
+    ReaderAddComponent,
+    BorrowBookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [BooksReadersService],
   bootstrap: [AppComponent]

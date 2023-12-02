@@ -2,11 +2,11 @@ import Book from "./Book";
 
 export class Reader {
     constructor(
-        private id:number, 
-        private firstName: string, 
-        private lastName: string, 
-        private pesel: string, 
-        private borrowedBooks: Book[]) {
+        public id:number, 
+        public firstName: string, 
+        public lastName: string, 
+        public pesel: string, 
+        public borrowedBooks: Book[]) {
     }
 
     // Gettery
@@ -56,9 +56,9 @@ export class Reader {
         const index = this.borrowedBooks.indexOf(book);
         if (index !== -1) {
             // Zmień status wypożyczenia na false
-            this.borrowedBooks[index].IsBorrowed = false;
+            this.borrowedBooks[index].isBorrowed = false;
             // Ustaw datę zwrotu
-            this.borrowedBooks[index].ReturnDate = new Date();
+            this.borrowedBooks[index].returnDate = new Date();
         }
     }
 }

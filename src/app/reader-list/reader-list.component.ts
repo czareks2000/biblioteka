@@ -13,6 +13,7 @@ export class ReaderListComponent {
   constructor(private booksReadersService: BooksReadersService) {}
 
   ngOnInit() {
-    this.readers = this.booksReadersService.getReaders();
+    this.booksReadersService.getReaders()
+      .subscribe((readers) => this.readers = readers);
   }
 }

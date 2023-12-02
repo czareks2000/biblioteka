@@ -15,11 +15,13 @@ export class BookListComponent implements OnInit {
   constructor(private booksReadersService: BooksReadersService) {}
 
   ngOnInit() {
-    this.books = this.booksReadersService.getBooks();
+    this.booksReadersService.getBooks()
+      .subscribe((books) => this.books = books);
   }
 
-  deleteBook(book: Book): void {
-    this.booksReadersService.removeBook(book);
-    this.books = this.booksReadersService.getBooks();
+  deleteBook(id: number): void {
+    this.booksReadersService.removeBook(id).subscribe();
+    this.booksReadersService.getBooks()
+      .subscribe((books) => this.books = books);
   }
 }

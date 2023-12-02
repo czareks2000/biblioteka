@@ -26,7 +26,7 @@ export class BookAddComponent {
   onSubmit(): void {
   if (this.bookForm.valid) {
     const newBook = new Book(
-      this.booksReadersService.getBooks().length + 1, // Automatyczne generowanie unikalnego ID
+      0,
       this.bookForm.value.author,
       this.bookForm.value.title,
       this.bookForm.value.publicationYear,
@@ -34,8 +34,9 @@ export class BookAddComponent {
       false, // Nowa książka nie jest wypożyczona na początku
     );
 
-    this.booksReadersService.addBook(newBook);
-    console.log('Dodano książkę:', newBook);
+    this.booksReadersService.addBook(newBook)
+      .subscribe((book) => console.log('Dodano książkę:', book));
+    
     this.router.navigate(['/']);
 
     this.bookForm.reset();

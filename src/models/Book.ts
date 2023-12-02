@@ -1,13 +1,13 @@
 export default class Book {  
     constructor(
-        private id: number,
-        private author: string,
-        private title: string,
-        private publicationYear: number,
-        private description: string,
-        private isBorrowed: boolean,
-        private borrowingDate?: Date,
-        private returnDate?: Date
+        public id: number,
+        public author: string,
+        public title: string,
+        public publicationYear: number,
+        public description: string,
+        public isBorrowed: boolean,
+        public borrowingDate?: Date,
+        public returnDate?: Date
     ) {}
 
     // Gettery
@@ -68,11 +68,11 @@ export default class Book {
         this.isBorrowed = isBorrowed;
     }
 
-    set BorrowingDate(borrowingDate: Date){
+    set BorrowingDate(borrowingDate: Date | undefined){
         this.borrowingDate = borrowingDate;
     }
 
-    set ReturnDate(returnDate: Date){
+    set ReturnDate(returnDate: Date | undefined){
         this.returnDate = returnDate;
     }
-  }
+}

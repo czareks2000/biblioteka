@@ -1,5 +1,5 @@
 <div class="mt-4">
-    <h2>{{reader?.FirstName}} {{reader?.LastName}}</h2>
+    <h2>{{reader?.firstName}} {{reader?.lastName}}</h2>
     <table class="table">
       <thead>
         <tr>
@@ -9,16 +9,20 @@
           <th>Is Borrowed</th>
           <th>Borrowing Date</th>
           <th>Return Date</th>
+          <th style="width: 0; white-space:nowrap;" class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let book of reader?.BorrowedBooks">
-          <td>{{ book.Id }}</td>
-          <td>{{ book.Author }}</td>
-          <td>{{ book.Title }}</td>
-          <td>{{ book.IsBorrowed ? 'Yes' : 'No' }}</td>
-          <td>{{ book.BorrowingDate | date:'short' }}</td>
-          <td>{{ book.ReturnDate | date:'short' }}</td>
+        <tr *ngFor="let book of reader?.borrowedBooks">
+          <td>{{ book.id }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.isBorrowed ? 'Yes' : 'No' }}</td>
+          <td>{{ book.borrowingDate | date:'short' }}</td>
+          <td>{{ book.returnDate | date:'short' }}</td>
+          <td>
+            <div *ngIf="book.isBorrowed" class="btn btn-primary" (click)="returnBook(book.id, reader!.id)">Return</div>
+          </td>
         </tr>
       </tbody>
     </table>
