@@ -19,6 +19,7 @@ import { ReaderAddComponent } from './reader-add/reader-add.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
 import { ShowLineDirective } from './show-line.directive';
+import { CalculateReturnDateService } from './calculate-return-date.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ShowLineDirective } from './show-line.directive';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [BooksReadersService],
+  providers: [BooksReadersService,CalculateReturnDateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
