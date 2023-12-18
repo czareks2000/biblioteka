@@ -24,9 +24,9 @@
       "author": "Author 3",
       "title": "Title 3",
       "publicationYear": 1995,
-      "isBorrowed": false,
-      "borrowingDate": null,
-      "returnDate": null
+      "isBorrowed": true,
+      "borrowingDate": "2023-12-18T16:58:03.577Z",
+      "returnDate": "2024-01-01T16:58:03.577Z"
     },
     {
       "id": 4,
@@ -53,17 +53,9 @@
       "title": "Title 1",
       "publicationYear": 2000,
       "description": "Description 1",
-      "isBorrowed": false,
-      "borrowingDate": null,
+      "isBorrowed": true,
+      "borrowingDate": "2023-12-18T16:24:40.678Z",
       "returnDate": null
-    },
-    {
-      "id": 7,
-      "author": "ASDFG",
-      "title": "asdf",
-      "publicationYear": 1255,
-      "description": "",
-      "isBorrowed": false
     }
   ],
   "readers": [
@@ -91,6 +83,34 @@
           "isBorrowed": false,
           "borrowingDate": "2023-12-02T19:33:53.265Z",
           "returnDate": "2023-12-02T19:49:43.023Z"
+        },
+        {
+          "id": 6,
+          "author": "Author 1",
+          "title": "Title 1",
+          "publicationYear": 2000,
+          "description": "Description 1",
+          "isBorrowed": true,
+          "borrowingDate": "2023-12-18T16:24:40.678Z",
+          "returnDate": null
+        },
+        {
+          "id": 3,
+          "author": "Author 3",
+          "title": "Title 3",
+          "publicationYear": 1995,
+          "isBorrowed": false,
+          "borrowingDate": "2023-12-18T16:55:24.955Z",
+          "returnDate": "2023-12-18T16:57:54.575Z"
+        },
+        {
+          "id": 3,
+          "author": "Author 3",
+          "title": "Title 3",
+          "publicationYear": 1995,
+          "isBorrowed": true,
+          "borrowingDate": "2023-12-18T16:58:03.577Z",
+          "returnDate": "2024-01-01T16:58:03.577Z"
         }
       ]
     },

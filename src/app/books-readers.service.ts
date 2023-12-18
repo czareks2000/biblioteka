@@ -4,6 +4,7 @@ import Book from 'src/models/Book';
 import { Reader } from 'src/models/Reader';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { CalculateReturnDateService } from './calculate-return-date.service';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,7 +18,8 @@ const httpOptions = {
 export class BooksReadersService {
   private apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient,
+    private returnDataService: CalculateReturnDateService){}
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.apiUrl}/books/`);
@@ -52,7 +54,8 @@ export class BooksReadersService {
       switchMap(book => {
         book.isBorrowed = true;
         book.borrowingDate = new Date();
-  
+        book.returnDate=this.returnDataService.calculateReturnDate(book.BorrowingDate);
+          
         return this.http.get<Reader>(`${this.apiUrl}/readers/${readerId}`).pipe(
           switchMap(reader => {
             reader.borrowedBooks.push(book);
