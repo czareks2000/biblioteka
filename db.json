@@ -6,8 +6,8 @@
       "title": "Title 1",
       "publicationYear": 2000,
       "description": "Description 1",
-      "isBorrowed": false,
-      "borrowingDate": "2023-12-02T19:33:53.265Z",
+      "isBorrowed": true,
+      "borrowingDate": "2023-12-18T00:05:27.911Z",
       "returnDate": "2023-12-02T19:49:43.023Z"
     },
     {
@@ -56,6 +56,14 @@
       "isBorrowed": false,
       "borrowingDate": null,
       "returnDate": null
+    },
+    {
+      "id": 7,
+      "author": "ASDFG",
+      "title": "asdf",
+      "publicationYear": 1255,
+      "description": "",
+      "isBorrowed": false
     }
   ],
   "readers": [
@@ -107,6 +115,16 @@
           "isBorrowed": true,
           "borrowingDate": "2023-12-02T19:40:33.856Z",
           "returnDate": null
+        },
+        {
+          "id": 1,
+          "author": "Author 1",
+          "title": "Title 1",
+          "publicationYear": 2000,
+          "description": "Description 1",
+          "isBorrowed": true,
+          "borrowingDate": "2023-12-18T00:05:27.911Z",
+          "returnDate": "2023-12-02T19:49:43.023Z"
         }
       ]
     },

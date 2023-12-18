@@ -18,6 +18,7 @@ import { BooksFilterBorrowedPipe } from './books-filter-borrowed.pipe';
 import { ReaderAddComponent } from './reader-add/reader-add.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BorrowBookComponent } from './borrow-book/borrow-book.component';
+import { ShowLineDirective } from './show-line.directive';
 
 @NgModule({
   declarations: [
@@ -32,14 +33,15 @@ import { BorrowBookComponent } from './borrow-book/borrow-book.component';
     BookFilterPipe,
     BooksFilterBorrowedPipe,
     ReaderAddComponent,
-    BorrowBookComponent
+    BorrowBookComponent,
+    ShowLineDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [BooksReadersService],
   bootstrap: [AppComponent]

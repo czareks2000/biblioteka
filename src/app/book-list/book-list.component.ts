@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import Book from '../../models/Book';
 import { BooksReadersService } from '../books-readers.service';
+import { ShowLineDirective } from '../show-line.directive';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
+  
 })
 export class BookListComponent implements OnInit {
   books: Book[] = [];

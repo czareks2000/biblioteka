@@ -31,14 +31,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books | booksFilter: filterByName | booksFilterByBorrowed: filterByBorrowed">
-        <td>{{ book.id }}</td>
-        <td>{{ book.author }}</td>
-        <td>{{ book.title }}</td>
-        <td>{{ book.publicationYear }}</td>
-        <td>{{ book.isBorrowed ? 'Yes' : 'No' }}</td>
+      <tr *ngFor="let book of books | booksFilter: filterByName | booksFilterByBorrowed: filterByBorrowed" >
+        <td >{{ book.id }}</td>
+        <td >{{ book.author }}</td>
+        <td >{{ book.title }}</td>
+        <td >{{ book.publicationYear }}</td>
+        <td >{{ book.isBorrowed ? 'Yes' : 'No' }}</td>
         <td class="d-flex">
-          <a [routerLink]="['/book-details', book.id]" class="btn btn-primary btn-sm mx-2">Details</a>
+          <a appShowLine [routerLink]="['/book-details', book.id]" class="btn btn-primary btn-sm mx-2">Details</a>
           <button (click)="deleteBook(book.id)" class="btn btn-danger btn-sm">Delete</button>
         </td>
       </tr>
